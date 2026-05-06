@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>carousel</title>
+	<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<main>
+<img decoding="async" id="random-image" src="" alt="Random image">
+</main>
+<script>
+const imgEl = document.getElementById('random-image');
+const srcArray = ['1a2.jpeg','1a3.jpeg','1a4.jpeg','1a5.jpeg','2a2.jpeg','2a3.jpeg','2a4.jpeg','2a5.jpeg','3a2.jpeg','3a3.jpeg','3a4.jpeg','3a5.jpeg',
+'4a2.jpeg','4a3.jpeg','4a4.jpeg','5a2.jpeg','5a3.jpeg','5a4.jpeg','5a5.jpeg','6a2.jpeg','6a3.jpeg','6a4.jpeg','6a5.jpeg','7a2.jpeg','7a3.jpeg','7a4.jpeg','7a5.jpeg','8a2.jpeg','8a3.jpeg','8a4.jpeg'];
+imgEl.addEventListener('click', () => {
+window.parent.location.reload();
+});
+randomImage();
+function randomImage() {
+const randomIndex = Math.floor(Math.random()*srcArray.length);
+if (localStorage.getItem('currentIndex') !== String(randomIndex)) {
+// Checks if current index in local storage is NOT equal to new randm value (as string)...
+imgEl.src = srcArray[randomIndex];
+//...if so, set random value as new image src...
+
+localStorage.setItem('currentIndex', randomIndex);
+//...and save as current index value in local storage
+} else {
+randomImage();
+}
+}
+</script>
+<script src="/styles/main.js"></script>
+</body>
+</html>

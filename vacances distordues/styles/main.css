@@ -1,0 +1,25 @@
+/* Ce code permet de neutraliser les marges par défaut */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+}
+
+/* Ce code permet de centrer les éléments dans la corps de la page */
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	height: 100vh;
+	flex-wrap: wrap;
+	background-color: beige;
+}
+
+img {
+	max-width: 1000px;
+}
